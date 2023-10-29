@@ -16,17 +16,37 @@ dotenv.config();
 
 //! MONGODB CONNECT
 
-(async () => {
-    try {
-      await mongoose.connect(process.env.MONGO_URL, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      });
-      console.log("Başkatip emrinizde şeyhim");
-    } catch (error) {
-      console.error("Başkatip hastalandı:", error);
-    }
-  })();
+
+
+// Mongoose bağlantı seçeneklerini ayarlayın
+const mongooseOptions = {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 5000, // Sunucu seçimi zaman aşımı (isteğe bağlı)
+  heartbeatFrequencyMS: 5000,     // Kalp atışı frekansı (isteğe bağlı)
+};
+
+// MongoDB bağlantısını kurun
+mongoose.connect(process.env.MONGO_URL, mongooseOptions);
+
+// Bağlantı olaylarını dinleyin
+mongoose.connection.on('connected', () => {
+  console.log('MongoDB bağlantısı başarılı.');
+});
+
+mongoose.connection.on('disconnected', () => {
+  console.log('MongoDB bağlantısı kesildi. Yeniden bağlanılıyor...');
+});
+
+mongoose.connection.on('error', (error) => {
+  console.error('MongoDB bağlantı hatası:', error);
+});
+
+// Mongoose bağlantısını döndürmek isterseniz:
+// const db = mongoose.connection;
+
+// Ardından, bu kod parçasını kullanarak MongoDB bağlantınızı yönetebilirsiniz.
+
 //!MİDDLEWARES HERE
 
 
