@@ -12,9 +12,9 @@ export default function Topbar() {
   return (
     <div className="topbarContainer">
       <div className="topbarLeft">
-        <img src="/assets/menu.png" alt="..." className="logoImg" />
-        <Link to="/" replace={true} style={{textDecoration:"none"}}>
-
+       
+        <Link to="/" replace={true} style={{textDecoration:"none", display:"flex", alignItems:"center"}}>
+        <img src="/assets/fakelogo.png" alt="..." className="logoImg" />
         <span className="logo">FakeBook</span>
 
         </Link>
