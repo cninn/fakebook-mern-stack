@@ -79,3 +79,24 @@
     cursor: pointer;
     flex: 0.5;
 }
+
+.shareImgContainer {
+    padding: 0 20px 10px 20px;
+    position: relative;
+    width: 100px;
+    margin-bottom: 10px;
+}
+.shareImg {
+    width: 100px;
+    object-fit: cover;
+}
+.shareCancelImg {
+    position: absolute;
+    top:0;
+    right: 10px;
+    color: white;
+    background-color: darkblue;
+    padding: 3px;
+    border-radius: 50%;
+    cursor: pointer;
+}

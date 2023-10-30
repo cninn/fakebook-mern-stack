@@ -31,3 +31,24 @@
     margin: 0;
     margin-top: 15px;
 }
+.rightbarFollowButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 20px;
+    font-size: 18px;
+    margin-bottom: 15px;
+    border:none;
+    outline:none;
+    background-color:#1872f2;
+    color: white;
+    border-radius: 15px;
+    cursor: pointer;
+    font-weight: 500;
+}
+.rightbarFollowButton:hover{
+    background-color: darkblue;
+    transition: all 0.4s;
+}
+
